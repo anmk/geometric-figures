@@ -1,0 +1,173 @@
+/* Typography ============================================================== */
+
+@media all and (max-width: 540px) {
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+  }
+
+  h2 {
+    font-size:  1.4rem;
+    line-height: 1.2rem;
+  }
+}
+
+@media all and (min-width: 541px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.6rem;
+  }
+
+  h2 {
+    font-size:  1.6rem;
+    line-height: 1.4rem;
+  }
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: #696969;
+}
+
+/* Layout ================================================================== */
+
+@media all and (max-width: 540px) {
+  .badge {
+    font-size: .6rem;
+  }
+}
+
+.badge-equilateral {
+  background-color: #808000;
+  color: white;
+  margin-left: .2rem;
+}
+
+.card-bar {
+  height: 1.7rem;
+  background-color: rgba(0,0,0,.03);
+}
+
+.card-out {
+  border: 1px solid rgba(0,0,0,.125);
+}
+  
+.card-in {
+  height: 30rem;
+  border-left: 1px solid rgba(0,0,0,.125);
+  border-right: 1px solid rgba(0,0,0,.125);
+}
+
+.card-collection {
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: -20px;
+  padding-left: -20px;
+}
+
+@media all and (max-width: 991px) {
+  .card-collection {
+    padding: .2rem;
+  }
+  .card-collection .card {
+    padding: .2rem;
+    margin: 0 .2rem;
+  }
+  .card-collection .card .card-body {
+    padding: .2rem;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .card-collection .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 1.2rem 0 1.2rem;
+  }
+}
+
+.entry-area {
+  height: 27rem;
+}
+
+.form-text-space {
+  height: 1rem;
+}
+
+.info-area {
+  font-size: .8rem;
+  line-height: 1.2rem;
+  border: 1px solid yellowgreen;
+  background-color: rgba(0,0,0,.03);
+  padding: 1rem;
+}
+
+.nav-area {
+  height: 30rem;
+}
+
+.small {
+  font-size: .8rem;
+  line-height: .8rem;
+}
+
+.text-val-alert {
+  color: red;
+  padding-top: .5rem;
+}
+
+.val-alert .ng-invalid.ng-touched,
+.val-alert .ng-invalid.ng-dirty {
+  border: 2px solid red;
+}
+
+/* Buttons ================================================================= */
+
+button {
+  cursor: pointer;
+}
+
+.button-home > a {
+  background-color: #add8e6;
+  border: 2px solid #00b7ff;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-home > a:hover {
+  background-color: #87c3eb;
+  border: 2px solid #00b7ff;
+}
+
+.button-select > a {
+  background-color: khaki;
+  border: 2px solid #ffa500;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-select > a:hover {
+  background-color: gold;
+  border: 2px solid #ffa500;
+}
+
+.button-text {
+  color: #696969;
+  font-weight: 500;
+}
+
+div > a {
+  position: relative;
+  font-size: .8rem;
+  padding: 1rem .5rem 1rem .5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
