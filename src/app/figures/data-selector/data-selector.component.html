@@ -1,0 +1,121 @@
+<app-header></app-header>
+
+<form [formGroup]="shapeForm" class="form-group border rounded py-2 mb-2">
+  <div class="row card-collection col-lg-12">
+    <div class="card my-2 col-lg-6">
+      <div class="card-body">
+
+        <app-card-top-selector
+          [shapeForm]="shapeForm">
+        </app-card-top-selector>
+
+        <div class="card-group card-in">
+          <div class="card entry-area my-4 mx-2 p-0">
+            <h2 class="card-header">{{ 'SELECTION.TITLE' | translate }}</h2>
+
+            <div class="form-group container p-3 val-alert">
+              <label class="form-check-label">{{ 'SELECTION.CHOOSE_SHAPE' | translate }}</label>
+              <select formControlName="shape" class="form-control mb-3">
+                <option value="">{{ 'SELECTION.SELECT_SHAPE' | translate }}</option>
+                <option *ngFor="let shape of availableShapes" 
+                  [value]="shape.type" class="border rounded p-2 mb-2">{{ shape.label }}
+                </option>
+              </select>
+              <div class="form-text-space">
+                <div class="text-val-alert" *ngIf="shapeForm.get('shape').hasError('required') && shapeForm.get('shape').touched">
+                  <p class="small">{{ 'SELECTION.REQUIRED' | translate }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group container p-3 val-alert" *ngIf="shapeForm.get('shape').value !== ''">
+              <label class="form-check-label">{{ 'SELECTION.SELECT_TYPE' | translate }}
+                <div class="form-control"
+
+                  [ngClass]="{'alert': shapeForm.get('calculationType').hasError('required') && shapeForm.get('calculationType').touched}">
+                  
+                  <div class="form-check" *ngIf=
+                  "shapeForm.get('shape').value === 'triangle'">
+                    <label class="form-check-label">
+                      <input formControlName="checkTriangle" type="checkbox" class="form-check-input">
+                      {{ 'SELECTION.EQUILATERAL_TRIANGLE' | translate }}
+                    </label>
+                  </div>
+                  
+                  <div class="form-check" *ngIf=
+                    "(shapeForm.get('shape').value === 'triangle'
+                    || shapeForm.get('shape').value === 'square'
+                    || shapeForm.get('shape').value === 'rectangle'
+                    || shapeForm.get('shape').value === 'ellipse'
+                    || shapeForm.get('shape').value === 'circle')">
+                      <label class="form-check-label">
+                        <input value="perimeter" formControlName="calculationType" type="radio" class="form-check-input">
+                        {{ 'SELECTION.PERIMETER' | translate }}
+                      </label>
+                  </div>
+
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input value="area" formControlName="calculationType" type="radio" class="form-check-input">
+                      {{ 'SELECTION.AREA' | translate }}
+                    </label>
+                  </div>
+
+                  <div class="form-check" *ngIf=
+                    "(shapeForm.get('shape').value === 'cube'
+                    || shapeForm.get('shape').value === 'cuboid'
+                    || shapeForm.get('shape').value === 'sphere')">
+                      <label class="form-check-label">
+                        <input value="volume" formControlName="calculationType" type="radio" class="form-check-input">
+                        {{ 'SELECTION.VOLUME' | translate }}
+                      </label>
+                  </div>
+
+                </div>
+              </label>
+
+              <div class="form-text-space-">
+                <div class="text-val-alert" *ngIf="shapeForm.get('calculationType').hasError('required') && shapeForm.get('calculationType').touched">
+                  <p class="small">{{ 'SELECTION.REQUIRED' | translate }}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card-group card-out card-bar">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card my-2 col-lg-6">
+      <div class="card-body container">
+        <div class="row nav-area">
+        
+          <div class="container button-text mt-3">
+              <div class="row justify-content-around offset-6">
+    
+                <div class="button-home">
+                  <a (click)="goToHome()">{{ 'SELECTION.HOME' | translate }}</a>
+                </div>
+        
+              </div>
+          </div> 
+
+          <div class="align-self-center form-control info-area mx-3" *ngIf="!shapeForm.valid">
+            <span class="row justify-content-around px-2">{{ 'SELECTION.FILL' | translate }}</span>
+          </div>
+
+          <div class="align-self-end btn-block col-8 offset-2" role="group" aria-label="Button group">
+            <button type="button" class="btn btn-success btn-block my-0" (click)="further()" [disabled]="!shapeForm.valid">{{ 'SELECTION.FURTHER' | translate }}</button>
+          </div>
+       
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</form>
+
