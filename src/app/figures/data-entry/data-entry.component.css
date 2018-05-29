@@ -1,0 +1,14 @@
+.badge-reset {
+  color: white;
+  background-color: #cd5c5c;
+  cursor: pointer;
+}
+
+.form-label-space {
+  height: 7rem;
+}
+
+.input-group-addon {
+  background-color: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.125);
+}

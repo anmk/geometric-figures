@@ -1,0 +1,172 @@
+<app-header></app-header>
+
+<form [formGroup]="entryForm" class="form-group border rounded p-2 mb-2">
+  <div class="row card-collection col-lg-12">
+    <div class="card my-2 col-lg-6">
+      <div class="card-body">
+
+        <app-card-top
+          [allCalculationData]="allCalculationData">
+        </app-card-top>
+        
+        <div class="card-group card-in">
+          <div class="card entry-area my-4 mx-2 p-0">
+            <h2 class="card-header container py-3">{{ 'ENTRY.TITLE' | translate }}</h2>
+
+            <div class="pt-3">
+              <ng-container class="form-control" 
+                *ngIf="allCalculationData.shape === RECTANGLE 
+                  || allCalculationData.shape === SQUARE 
+                  || allCalculationData.shape === TRIANGLE
+                  || allCalculationData.shape === ELLIPSE
+                  || allCalculationData.shape === CIRCLE
+                  || allCalculationData.shape === CUBE
+                  || allCalculationData.shape === CUBOID
+                  || allCalculationData.shape === SPHERE">
+                
+                  <div class="container form-label-space">
+                    <label class="small">{{ 'ENTRY.ENTER' | translate }} {{ allCalculationData.nameALength }} {{ 'ENTRY.VALUE' | translate }} {{ allCalculationData.shape }}</label>
+                    <div class="input-group val-alert">  
+                      <span class="input-group-addon col-form-label px-1">{{ allCalculationData.shape }}</span>
+                      <input formControlName="sideALength" type="text" class="form-control" placeholder="{{allCalculationData.nameALength}}">
+                    </div>
+
+                    <div class="form-text-space">
+                      <div class="text-val-alert" *ngIf="entryForm.get('sideALength').hasError('required') && entryForm.get('sideALength').touched">
+                        <p class="small">{{ 'ENTRY.REQUIRED' | translate }}</p>
+                      </div>
+                    
+                      <div class="text-val-alert" *ngIf="entryForm.get('sideALength').hasError('pattern')">
+                        <p class="small">{{ 'ENTRY.ONLY_NUMBERS' | translate }}</p>
+                      </div>
+                    </div>
+                  </div>
+              </ng-container>
+            </div>
+
+            <div [ngSwitch]="allCalculationData.shape">
+              <ng-container class="form-control"
+                *ngIf="allCalculationData.shape === RECTANGLE 
+                  || allCalculationData.shape === ELLIPSE
+                  || allCalculationData.shape === CUBOID
+                  || (allCalculationData.shape === TRIANGLE && allCalculationData.checkTriangle === false)">
+
+                <div class="container form-label-space">
+                  <label class="small">{{ 'ENTRY.ENTER' | translate }} {{ allCalculationData.nameBLength }} {{ 'ENTRY.VALUE' | translate }} {{ allCalculationData.shape }}</label>
+
+                  <div class="input-group val-alert"> 
+                    <span class="input-group-addon col-form-label px-1">{{ allCalculationData.shape }}</span>
+                    <input formControlName="sideBLength" type="text" class="form-control" placeholder="{{allCalculationData.nameBLength}}">
+                  </div>
+
+                  <div class="form-text-space">
+                    <div class="text-val-alert" *ngIf="entryForm.get('sideBLength').hasError('required') && entryForm.get('sideBLength').touched">
+                      <p class="small">{{ 'ENTRY.REQUIRED' | translate }}</p>
+                    </div>
+
+                    <div class="text-val-alert" *ngIf="entryForm.get('sideBLength').hasError('pattern')">
+                      <p class="small">{{ 'ENTRY.ONLY_NUMBERS' | translate }}</p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <div [ngSwitch]="allCalculationData.shape">
+              <ng-container class="form-control"
+                *ngIf="allCalculationData.shape === CUBOID
+                || (allCalculationData.shape === TRIANGLE && allCalculationData.calculationType === PERIMETER && allCalculationData.checkTriangle === false)">
+
+                <div class="container form-label-space">
+                  <label class="small">{{ 'ENTRY.ENTER' | translate }} {{ allCalculationData.nameCLength }} {{ 'ENTRY.VALUE' | translate }} {{ allCalculationData.shape }}</label>
+
+                  <div class="input-group val-alert"> 
+                    <span class="input-group-addon col-form-label px-1">{{ allCalculationData.shape }}</span>
+                    <input formControlName="sideCLength" type="text" class="form-control" placeholder="{{allCalculationData.nameCLength}}">
+                  </div>
+
+                  <div class="form-text-space">
+                    <div class="text-val-alert" *ngIf="entryForm.get('sideCLength').hasError('required') && entryForm.get('sideCLength').touched">
+                      <p class="small">{{ 'ENTRY.REQUIRED' | translate }}</p>
+                    </div>
+
+                    <div class="text-val-alert" *ngIf="entryForm.get('sideCLength').hasError('pattern')">
+                      <p class="small">{{ 'ENTRY.ONLY_NUMBERS' | translate }}</p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <div class="container align-self-end" *ngIf="((!entryForm.get('sideALength').hasError('required'))
+              || (!entryForm.get('sideBLength').hasError('required')) || (!entryForm.get('sideCLength').hasError('required')))">
+              <div class="row justify-content-end mx-3">
+                <span class="badge badge-reset" (click)="reset()">{{ 'ENTRY.RESET' | translate }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <app-card-bottom-entry
+          [entryForm]="entryForm">
+        </app-card-bottom-entry>
+
+      </div>
+    </div>
+
+    <div class="card my-2 col-lg-6">
+      <div class="card-body container">
+        <div class="row nav-area">
+        
+          <div class="container button-text mt-3">
+            <div class="row justify-content-around">
+          
+              <div class="button-select">
+                <a (click)="backToSelect()">{{ 'ENTRY.SELECT' | translate }}</a>
+              </div>
+              
+              <div class="button-home">
+                <a (click)="goToHome()">{{ 'ENTRY.HOME' | translate }}</a>
+              </div>
+  
+            </div>
+          </div>
+          
+        <div class="align-self-center form-control info-area mx-3" 
+          *ngIf="((allCalculationData.shape !== RECTANGLE || allCalculationData.shape !== ELLIPSE || allCalculationData.shape !== CUBOID)
+                  && ((entryForm.get('sideALength').hasError('required')) || (entryForm.get('sideALength').hasError('pattern'))))
+                  
+                  || ((allCalculationData.shape === RECTANGLE || allCalculationData.shape === ELLIPSE || allCalculationData.shape === CUBOID
+                  || (allCalculationData.shape === TRIANGLE && allCalculationData.checkTriangle === false)) 
+                  && ((entryForm.get('sideALength').hasError('required') || entryForm.get('sideALength').hasError('pattern'))
+                  || (entryForm.get('sideBLength').hasError('required') || entryForm.get('sideBLength').hasError('pattern'))))
+
+                  || ((allCalculationData.shape === CUBOID || (allCalculationData.shape === TRIANGLE 
+                  && allCalculationData.calculationType === PERIMETER && allCalculationData.checkTriangle === false )) 
+                  && ((entryForm.get('sideCLength').hasError('required')) || (entryForm.get('sideCLength').hasError('pattern'))))">
+            <span class="row justify-content-around px-2">{{ 'ENTRY.FILL' | translate }}</span>
+        </div>
+    
+        <div class="align-self-end btn-block col-8 offset-2" role="group" aria-label="Button group">
+          <button type="button" class="btn btn-success btn-block my-0" (click)="calculate()" 
+            [disabled]="((allCalculationData.shape !== RECTANGLE || allCalculationData.shape !== ELLIPSE || allCalculationData.shape !== CUBOID) 
+                        && ((entryForm.get('sideALength').hasError('required')) || (entryForm.get('sideALength').hasError('pattern'))))
+            
+                        || ((allCalculationData.shape === RECTANGLE || allCalculationData.shape === ELLIPSE || allCalculationData.shape === CUBOID 
+                        || (allCalculationData.shape === TRIANGLE && allCalculationData.checkTriangle === false))
+                        && ((entryForm.get('sideALength').hasError('required') || entryForm.get('sideALength').hasError('pattern'))
+                        || (entryForm.get('sideBLength').hasError('required') || entryForm.get('sideBLength').hasError('pattern'))))
+
+                        || ((allCalculationData.shape === CUBOID || (allCalculationData.shape === TRIANGLE 
+                        && allCalculationData.calculationType === PERIMETER && allCalculationData.checkTriangle === false ))
+                        && ((entryForm.get('sideCLength').hasError('required')) || (entryForm.get('sideCLength').hasError('pattern'))))">
+                        {{ 'ENTRY.CALCULATE' | translate }}
+          </button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  </div>
+</form>
