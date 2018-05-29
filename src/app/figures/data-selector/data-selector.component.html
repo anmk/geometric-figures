@@ -35,7 +35,7 @@
                   [ngClass]="{'alert': shapeForm.get('calculationType').hasError('required') && shapeForm.get('calculationType').touched}">
                   
                   <div class="form-check" *ngIf=
-                  "shapeForm.get('shape').value === 'triangle'">
+                  "shapeForm.get('shape').value === TRIANGLE">
                     <label class="form-check-label">
                       <input formControlName="checkTriangle" type="checkbox" class="form-check-input">
                       {{ 'SELECTION.EQUILATERAL_TRIANGLE' | translate }}
@@ -43,11 +43,11 @@
                   </div>
                   
                   <div class="form-check" *ngIf=
-                    "(shapeForm.get('shape').value === 'triangle'
-                    || shapeForm.get('shape').value === 'square'
-                    || shapeForm.get('shape').value === 'rectangle'
-                    || shapeForm.get('shape').value === 'ellipse'
-                    || shapeForm.get('shape').value === 'circle')">
+                    "(shapeForm.get('shape').value === TRIANGLE
+                    || shapeForm.get('shape').value === SQUARE
+                    || shapeForm.get('shape').value === RECTANGLE
+                    || shapeForm.get('shape').value === ELLIPSE
+                    || shapeForm.get('shape').value === CIRCLE)">
                       <label class="form-check-label">
                         <input value="perimeter" formControlName="calculationType" type="radio" class="form-check-input">
                         {{ 'SELECTION.PERIMETER' | translate }}
@@ -62,9 +62,9 @@
                   </div>
 
                   <div class="form-check" *ngIf=
-                    "(shapeForm.get('shape').value === 'cube'
-                    || shapeForm.get('shape').value === 'cuboid'
-                    || shapeForm.get('shape').value === 'sphere')">
+                    "(shapeForm.get('shape').value === CUBE
+                    || shapeForm.get('shape').value === CUBOID
+                    || shapeForm.get('shape').value === SPHERE)">
                       <label class="form-check-label">
                         <input value="volume" formControlName="calculationType" type="radio" class="form-check-input">
                         {{ 'SELECTION.VOLUME' | translate }}

@@ -11,16 +11,18 @@ import { FiguresService } from '../figures.service';
   styleUrls: ['./data-selector.component.css']
 })
 
-export class DataSelectorComponent implements OnInit, AfterViewChecked {
-
-  availableShapes: object[];
-  shapeForm: FormGroup = this.buildCalculateForm();
+export class DataSelectorComponent extends FiguresService implements OnInit, AfterViewChecked {
 
   constructor(protected formBuilder: FormBuilder,
               protected figuresService: FiguresService,
               protected router: Router) {
+    super();
     this.availableShapes = this.figuresService.getShapes();
   }
+
+  availableShapes: object[];
+  availableNames;
+  shapeForm: FormGroup = this.buildCalculateForm();
 
   private buildCalculateForm(): FormGroup {
     return this.formBuilder.group({
@@ -48,13 +50,13 @@ export class DataSelectorComponent implements OnInit, AfterViewChecked {
     window.scrollTo(0, 1270 - window.innerHeight) : null;
   }
 
-  private further(): void {
+  further(): void {
     this.figuresService.getAllDataStream();
     this.figuresService.addToAllDataStreem(this.shapeForm.value);
     this.router.navigate(['entry']);
   }
 
-  protected goToHome(): void {
+  goToHome(): void {
     this.router.navigate(['home']);
   }
 
