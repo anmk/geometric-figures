@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable ,  Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { SelectionData, AllCalculationData } from '../types';
 import { FiguresService } from '../figures.service';
@@ -69,7 +69,7 @@ export class DataEntryComponent extends DataSelectorComponent implements OnInit,
 
   protected scrollToBottom(): void {
     const scrollToBottom =
-      (!this.entryForm.hasError('required') && this.entryForm.valid && screen.width < 992) ?
+      (!this.entryForm.hasError('required') && this.entryForm.touched && screen.width < 992) ?
       window.scrollTo(0, 1270 - window.innerHeight) : null;
   }
 
