@@ -37,7 +37,7 @@ export class DataSelectorComponent extends FiguresService implements OnInit, Aft
   }
 
   ngAfterViewChecked() {
-    this.scrollToBottom();
+   this.scrollToBottom();
   }
 
   protected scrollToTop(): void {
