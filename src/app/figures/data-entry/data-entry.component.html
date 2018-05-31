@@ -28,7 +28,7 @@
                     <label class="small">{{ 'ENTRY.ENTER' | translate }} {{ allCalculationData.nameALength }} {{ 'ENTRY.VALUE' | translate }} {{ allCalculationData.shape }}</label>
                     <div class="input-group val-alert">  
                       <span class="input-group-addon col-form-label px-1">{{ allCalculationData.shape }}</span>
-                      <input formControlName="sideALength" type="text" class="form-control" placeholder="{{allCalculationData.nameALength}}">
+                      <input formControlName="sideALength" type="text" class="form-control" placeholder="{{allCalculationData.nameALength}}" blur="onBlurMethod()">
                     </div>
 
                     <div class="form-text-space">
@@ -56,7 +56,7 @@
 
                   <div class="input-group val-alert"> 
                     <span class="input-group-addon col-form-label px-1">{{ allCalculationData.shape }}</span>
-                    <input formControlName="sideBLength" type="text" class="form-control" placeholder="{{allCalculationData.nameBLength}}">
+                    <input formControlName="sideBLength" type="text" class="form-control" placeholder="{{allCalculationData.nameBLength}}" blur="onBlurMethod()">
                   </div>
 
                   <div class="form-text-space">
@@ -82,7 +82,7 @@
 
                   <div class="input-group val-alert"> 
                     <span class="input-group-addon col-form-label px-1">{{ allCalculationData.shape }}</span>
-                    <input formControlName="sideCLength" type="text" class="form-control" placeholder="{{allCalculationData.nameCLength}}">
+                    <input formControlName="sideCLength" type="text" class="form-control" placeholder="{{allCalculationData.nameCLength}}" blur="onBlurMethod()">
                   </div>
 
                   <div class="form-text-space">
