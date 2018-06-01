@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { AllCalculationData } from '../types/all-calculation-data';
   templateUrl: './calculation-result.component.html'
 })
 
-export class CalculationResultComponent implements OnInit {
+export class CalculationResultComponent implements OnInit, OnDestroy {
 
   constructor(private figuresService: FiguresService,
               private router: Router) { }
@@ -24,10 +24,18 @@ export class CalculationResultComponent implements OnInit {
     this.shownAllCalculationData.emit(this.allCalculationData);
   }
 
-  ngOnInit() {
+  getAllCalculationDataSubscription(): void {
     this.allCalculationDataSubscription = this.figuresService.getAllDataStream()
-   .subscribe(allCalculationData =>  this.allCalculationData = allCalculationData);
+      .subscribe(allCalculationData => this.allCalculationData = allCalculationData);
+  }
+
+  ngOnInit() {
+    this.getAllCalculationDataSubscription();
     this.showAllCalculationData();
+  }
+
+  ngOnDestroy() {
+    this.allCalculationDataSubscription.unsubscribe();
   }
 
 }
