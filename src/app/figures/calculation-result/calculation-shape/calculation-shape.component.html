@@ -1,0 +1,103 @@
+<app-header></app-header>
+
+<div  class="border rounded p-2 mb-2">
+  <div class="row card-collection col-lg-12">
+    <div class="card my-2 col-lg-6">
+      <div class="card-body">
+
+        <app-calculation-result 
+          (shownAllCalculationData) = "onShownAllCalculationData($event)">
+        </app-calculation-result>
+        
+        <app-card-top
+          [allCalculationData]="allCalculationData">
+        </app-card-top>
+
+        <div class="card-group card-in">
+          <div class="card my-4 mx-2 p-0">
+
+            <div [ngSwitch]="allCalculationData.shape">
+              <app-empty-shape
+                *ngSwitchDefault>
+              </app-empty-shape>
+              <div *ngSwitchCase="'triangle'">
+                <app-calculation-triangle *ngIf="allCalculationData.checkTriangle === false"
+                  [allCalculationData]="allCalculationData" 
+                  [calculationResult]="calculationResult">
+                </app-calculation-triangle>
+                <app-calculation-equilateral-triangle *ngIf="allCalculationData.checkTriangle === true"
+                  [allCalculationData]="allCalculationData" 
+                  [calculationResult]="calculationResult">
+                </app-calculation-equilateral-triangle>
+              </div>
+              <app-calculation-rectangle 
+                *ngSwitchCase="'rectangle'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-rectangle>
+              <app-calculation-square 
+                *ngSwitchCase="'square'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-square>
+              <app-calculation-ellipse 
+                *ngSwitchCase="'ellipse'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-ellipse>
+              <app-calculation-circle 
+                *ngSwitchCase="'circle'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-circle>
+              <app-calculation-cube 
+                *ngSwitchCase="'cube'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-cube>
+              <app-calculation-cuboid 
+                *ngSwitchCase="'cuboid'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-cuboid>
+              <app-calculation-sphere 
+                *ngSwitchCase="'sphere'" 
+                [allCalculationData]="allCalculationData" 
+                [calculationResult]="calculationResult">
+              </app-calculation-sphere>
+            </div>
+            
+          </div>
+        </div>
+
+        <app-card-bottom
+          [allCalculationData]="allCalculationData">
+        </app-card-bottom>
+
+      </div>
+    </div>
+
+    <div class="card my-2 col-lg-6">
+      <div class="card-body container">
+        <div class="row nav-area">
+
+          <div class="container button-text mt-3">
+            <div class="row justify-content-around">
+          
+              <div class="button-select">
+                <a routerLink="/selection" aria-label="Select link">{{ 'SHAPE.SELECT' | translate }}</a>
+              </div>
+              
+              <div class="button-home">
+                <a routerLink="/home" aria-label="Home link">{{ 'SHAPE.HOME' | translate }}</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
