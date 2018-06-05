@@ -1,0 +1,7 @@
+<app-calculation-display
+  [name]="NAME" 
+  [calculationResult]="calculationResult">
+    <p class="text-muted small" *ngIf="allCalculationData.calculationType === PERIMETER">
+      {{ 'FIGURES.ELLIPSE.APPROXIMATION' | translate }}
+    </p>
+</app-calculation-display>
