@@ -1,0 +1,57 @@
+{
+  "HEADER": {
+    "TITLE": "Geometric figures",
+    "SELECT": "Change language"
+  },
+  "HOME": {
+    "DESCRIPTION": "The application is used to calculate the perimeters, areas and volumes of the following 2D and 3D geometric shapes: ",
+    "SHAPES": "rectangle, square, triangle, equilateral triangle, ellipse, circle, cube, cuboid and sphere.",
+    "APPROXIMATION": "An approximation of the Ramanujan, an Indian mathematician, was used to calculate the ellipse's circumference.",
+    "FUN": "Have fun.",
+    "START": "Start"
+  },
+  "SELECTION": {
+    "TITLE": "Data selection",
+    "CHOOSE_SHAPE": "Choose shape",
+    "SELECT_SHAPE": "Select",
+    "SELECT_TYPE": "Select the type of calculation",
+    "PERIMETER": "Perimeter",
+    "AREA": "Area",
+    "VOLUME": "Volume",
+    "EQUILATERAL_TRIANGLE": "Equilateral triangle",
+    "HOME": "Home",
+    "FURTHER": "Go further",
+    "FILL": "Before proceeding, please fill in the contents of the neighboring card.",
+    "REQUIRED": "Field is required"
+  },
+  "ENTRY": {
+    "TITLE": "Data entry",
+    "ENTER": "Enter the ",
+    "VALUE": " value of the ",
+    "RESET": "Reset",
+    "SELECT": "Select",
+    "HOME": "Home",
+    "FILL": "Before proceeding, please fill in the contents of the neighboring card correctly.",
+    "REQUIRED": "Field is required",
+    "ONLY_NUMBERS": "You can type only numbers (max 16)",
+    "CALCULATE": "Calculate"
+  },
+  "SHAPE": {
+    "SELECT": "Select",
+    "HOME": "Home",
+    "NO_DATA": "No data on the type of figure. Please select the shape again.",
+    "DISPLAY": {
+      "RESULT": "calculation result:"
+    }
+  },
+  "FIGURES": {
+    "TRIANGLE": {
+      "NO_EQUILATERAL": "(It was assumed that the triangle is not equilateral)"
+    },
+    "ELLIPSE": {
+      "APPROXIMATION": "(Approximation)"
+    }
+   
+  }
+
+}
