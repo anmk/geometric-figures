@@ -7,7 +7,7 @@ A production version can be tried at the following link: [Geometric figures](htt
 The application can calculate perimeters, areas and volumes of some 2D and 3D geometric shapes. The project was built in Angular v6.0.2 using component inheritance. In addition, I used Node.js v10.1.0 and Bootstrap v4.1.1. Various types of reactive forms have been placed in the application: tekstarea, checkbox, radio and select. For communication, I deliberately used various methods of both Input, Output, projection with ng-content and RxJS. 
 
 To calculate the ellipse's circumference was used an approximation of the Ramanujan, an Indian mathematician.
-Source: [Circuit of the ellipse](https://www.mathsisfun.com/geometry/ellipse-perimeter.html) (Approximation 3)
+Source: [Perimeter of an Ellipse](https://www.mathsisfun.com/geometry/ellipse-perimeter.html) (Approximation 3)
 
 ## Development server
 
