@@ -1,6 +1,7 @@
 # Geometric figures
 
-A production version can be tried at the following link: [Geometric figures](http://gf.kalowski.com)
+A production version can be tried at the following links: 
+*[Geometric figures](http://gf.kalowski.com)
 
 ## Introduction
 
