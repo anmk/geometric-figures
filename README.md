@@ -1,7 +1,8 @@
 # Geometric figures
 
 A production version can be tried at the following links: 
-*[Geometric figures](http://gf.kalowski.com)
+* https://ng-geometric-figures.web.app
+* https://ng-geometric-figures.firebaseapp.com
 
 ## Introduction
 
