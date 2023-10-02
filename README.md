@@ -1,5 +1,5 @@
 # Geometric figures
-
+![version](https://img.shields.io/badge/angular%20cli%20version-6.0.3-blue?style=plastic) ![GitHub repo size](https://img.shields.io/github/repo-size/anmk/geometric-figures?style=plastic)
 A production version can be tried at the following links: 
 * https://ng-geometric-figures.web.app
 * https://ng-geometric-figures.firebaseapp.com
